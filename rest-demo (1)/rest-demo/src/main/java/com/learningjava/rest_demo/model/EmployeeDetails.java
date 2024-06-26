@@ -1,21 +1,31 @@
 package com.learningjava.rest_demo.model;
 
-public class EmployeeDetials {
-  
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="employee_Details")
+
+public class EmployeeDetails {
+ 
+  @Id
   private String employeeId;
   private String employeeName;
   private String employeeRole;
   private String employeeAddress;
   private String employeePhoneNumber;
+  private String employeePassword;
 
-  public EmployeeDetials() {}
+  public EmployeeDetails() {}
 
-  public EmployeeDetials(String employeeId, String employeeName, String employeeRole, String employeeAddress, String employeePhoneNumber) {
+  public EmployeeDetails(String employeeId, String employeePassword, String employeeName, String employeeRole, String employeeAddress, String employeePhoneNumber) {
     this.employeeId = employeeId;
     this.employeeName = employeeName;
     this.employeeRole = employeeRole;
     this.employeeAddress = employeeAddress;
     this.employeePhoneNumber = employeePhoneNumber;
+    this.employeePassword = employeePassword;
   }
 
   public String getEmployeeId() {
@@ -58,14 +68,23 @@ public String getEmployeeName() {
     this.employeePhoneNumber = employeePhoneNumber;
   }
 
+  public void setEmployeePassword(String employeePassword) {
+    this.employeePassword = employeePassword;
+  }
+
+  public String getEmployeePassword() {
+    return employeePassword;
+  }
+
   @Override
   public String toString() {
-    return "EmployeeDetials{" +
+    return "EmployeeDetails{" +
     "employeeId='" + employeeId + '\'' +
     ", employeeName='" + employeeName + '\'' +
     ", employeeRole='" + employeeRole + '\'' +
     ", employeeAddress='" + employeeAddress + '\'' +
     ", employeePhoneNumber='" + employeePhoneNumber + '\'' +
+            "employeePassword='" + employeePassword + '\'' +
     '}';
   }
 }
