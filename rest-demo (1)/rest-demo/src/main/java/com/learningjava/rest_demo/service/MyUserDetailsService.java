@@ -1,8 +1,7 @@
-package com.learningjava.rest_demo.security;
+package com.learningjava.rest_demo.service;
 
 import com.learningjava.rest_demo.model.EmployeeDetails;
 import com.learningjava.rest_demo.repository.EmployeeInfoRepository;
-import com.learningjava.rest_demo.service.MyUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -13,11 +12,11 @@ import org.springframework.stereotype.Service;
 public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private EmployeeInfoRepository employeeInfoRepository;
+    private EmployeeInfoRepository employeeRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        EmployeeDetails employeeDetails = employeeInfoRepository.findByEmployeeId(username);
+        EmployeeDetails employeeDetails = employeeRepository.findByEmployeeId(username);
         if (employeeDetails == null) {
             throw new UsernameNotFoundException("User not found");
         }
