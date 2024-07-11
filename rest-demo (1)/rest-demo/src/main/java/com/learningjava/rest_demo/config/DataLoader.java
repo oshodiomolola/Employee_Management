@@ -17,10 +17,10 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodedPassword = encoder.encode("mySecretKey23!#82728@");
+        String encodedPassword = encoder.encode("mySecretKey");
 
         EmployeeDetails employee = new EmployeeDetails();
-        employee.setEmployeeId("admin");
+        employee.setEmployeeId("01");
         employee.setEmployeePassword(encodedPassword);
         employee.setEmployeeName("Admin User");
         employee.setEmployeeRole("Engineer");
